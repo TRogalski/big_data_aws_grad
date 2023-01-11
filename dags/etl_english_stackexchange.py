@@ -92,7 +92,7 @@ FILE_CONFIG = {
                 "_ExcerptPostId": "string",
                 "_Id": "string",
                 "_TagName": "string",
-                "_WikiPostIds": "string"
+                "_WikiPostId": "string"
             }
         },
     "Users": {
