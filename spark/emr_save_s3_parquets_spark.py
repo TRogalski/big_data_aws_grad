@@ -1,25 +1,36 @@
 import argparse
-import ast
+import json
 
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col
+from pyspark.sql.types import StructType, StructField, StringType, TimestampType, IntegerType, BooleanType
 
-def main(spark, source_name, cast_config):
-    df = spark.read.format("xml")\
+
+def main(spark, source_name, run_date, file_config):
+
+    schema = StructType.fromJson(file_config["schema"])
+    dest_file_name = file_config["file_name"]
+    column_renames = file_config["column_renames"]
+
+    # read xml using schema
+    df = spark.read.schema(schema)\
+                   .format("xml")\
                    .options(rowTag="row", rootTag="tags")\
-                   .load(f"s3://english-stackexchange-com/raw/{source_name}.xml")
+                   .load(f"s3://english-stackexchange-com/raw/{run_date}/{source_name}.xml")
 
-    for column_name, type in cast_config.items():
-        df = df.withColumn(column_name, col(column_name).cast(type))
+    # change column names
+    df = df.toDF(*column_renames)
 
-    df.write.parquet(f"s3://english-stackexchange-com/parquet/{source_name}.parquet", mode="overwrite")
+    # write parquet version of the file with changed name under date of the run
+    df.write.parquet(f"s3://english-stackexchange-com/parquet/{run_date}/{dest_file_name}.parquet", mode="overwrite")
 
 if __name__ == "__main__":
-    spark = SparkSession.builder.appName("save_file_as_parquet").getOrCreate()
+    spark = SparkSession.builder.appName("save_xml_as_parquet").getOrCreate()
     parser = argparse.ArgumentParser()
     parser.add_argument("--source-name")
-    parser.add_argument("--cast-config")
+    parser.add_argument("--file-config")
+    parser.add_argument("--run-date")
     args = parser.parse_args()
     source_name = args.source_name
-    cast_config = ast.literal_eval(args.cast_config)
-    main(spark, source_name, cast_config)
+    file_config = json.loads(str(args.file_config))
+    run_date = args.run_date
+    main(spark, source_name, run_date, file_config)

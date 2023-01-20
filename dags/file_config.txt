@@ -1,0 +1,757 @@
+{
+  "Badges":{
+    "schema":{
+      "type":"struct",
+      "fields":[
+        {
+          "name":"_Id",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_UserId",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Name",
+          "type":"string",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Date",
+          "type":"timestamp",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Class",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_TagBased",
+          "type":"boolean",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        }
+      ]
+    },
+    "column_renames":[
+      "id",
+      "user_id",
+      "name",
+      "date",
+      "class",
+      "tag_based"
+    ],
+    "file_name":"badges"
+  },
+  "Comments":{
+    "schema":{
+      "type":"struct",
+      "fields":[
+        {
+          "name":"_Id",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_PostId",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Score",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Text",
+          "type":"string",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_CreationDate",
+          "type":"timestamp",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_UserDisplayName",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_UserId",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_ContentLicense",
+          "type":"string",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        }
+      ]
+    },
+    "column_renames":[
+      "id",
+      "post_id",
+      "score",
+      "text",
+      "creation_date",
+      "user_display_name",
+      "user_id",
+      "content_license"
+    ],
+    "file_name":"comments"
+  },
+  "PostHistory":{
+    "schema":{
+      "type":"struct",
+      "fields":[
+        {
+          "name":"_Id",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_PostHistoryTypeId",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_PostId",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_RevisionGUID",
+          "type":"string",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_CreationDate",
+          "type":"timestamp",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_UserId",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_UserDisplayName",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Comment",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Text",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_ContentLicense",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        }
+      ]
+    },
+    "column_renames":[
+      "id",
+      "post_history_type_id",
+      "post_id",
+      "revision_guid",
+      "creation_date",
+      "user_id",
+      "user_display_name",
+      "comment",
+      "text",
+      "content_license"
+    ],
+    "file_name":"post_history"
+  },
+  "PostLinks":{
+    "schema":{
+      "type":"struct",
+      "fields":[
+        {
+          "name":"_Id",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_CreationDate",
+          "type":"timestamp",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_PostId",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_RelatedPostId",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_LinkTypeId",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        }
+      ]
+    },
+    "column_renames":[
+      "id",
+      "creation_date",
+      "post_id",
+      "related_post_id",
+      "link_type_id"
+    ],
+    "file_name":"post_links"
+  },
+  "Posts":{
+    "schema":{
+      "type":"struct",
+      "fields":[
+        {
+          "name":"_Id",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_PostTypeId",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_AcceptedAnswerId",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_ParentId",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_CreationDate",
+          "type":"timestamp",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Score",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_ViewCount",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Body",
+          "type":"string",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_OwnerUserId",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_OwnerDisplayName",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_LastEditorUserId",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_LastEditorDisplayName",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_LastEditDate",
+          "type":"timestamp",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_LastActivityDate",
+          "type":"timestamp",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Title",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Tags",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_AnswerCount",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_CommentCount",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_FavoriteCount",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_ClosedDate",
+          "type":"timestamp",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_CommunityOwnedDate",
+          "type":"timestamp",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_ContentLicense",
+          "type":"string",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        }
+      ]
+    },
+    "column_renames":[
+      "id",
+      "post_type_id",
+      "accepted_answer_id",
+      "parent_id",
+      "creation_date",
+      "score",
+      "view_count",
+      "body",
+      "owner_user_id",
+      "owner_display_name",
+      "last_editor_user_id",
+      "last_editor_display_name",
+      "last_edit_date",
+      "last_activity_date",
+      "title",
+      "tags",
+      "answer_count",
+      "comment_count",
+      "favorite_count",
+      "closed_date",
+      "community_owned_date",
+      "content_license"
+    ],
+    "file_name":"posts"
+  },
+  "Tags":{
+    "schema":{
+      "type":"struct",
+      "fields":[
+        {
+          "name":"_Id",
+          "type":"string",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_TagName",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Count",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_ExcerptPostId",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_WikiPostId",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        }
+      ]
+    },
+    "column_renames":[
+      "id",
+      "tag_name",
+      "count",
+      "excerpt_post_id",
+      "wiki_post_id"
+    ],
+    "file_name":"tags"
+  },
+  "Users":{
+    "schema":{
+      "type":"struct",
+      "fields":[
+        {
+          "name":"_Id",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Reputation",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_CreationDate",
+          "type":"timestamp",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_DisplayName",
+          "type":"string",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_LastAccessDate",
+          "type":"timestamp",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_WebsiteUrl",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Location",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_AboutMe",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_Views",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_UpVotes",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_DownVotes",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_ProfileImageUrl",
+          "type":"string",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_AccountId",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        }
+      ]
+    },
+    "column_renames":[
+      "id",
+      "reputation",
+      "creation_date",
+      "display_name",
+      "last_access_date",
+      "website_url",
+      "location",
+      "about_me",
+      "views",
+      "up_votes",
+      "down_votes",
+      "profile_image_url",
+      "account_id"
+    ],
+    "file_name":"users"
+  },
+  "Votes":{
+    "schema":{
+      "type":"struct",
+      "fields":[
+        {
+          "name":"_Id",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_PostId",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_VoteTypeId",
+          "type":"integer",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_UserId",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_CreationDate",
+          "type":"timestamp",
+          "nullable":false,
+          "metadata":[
+
+          ]
+        },
+        {
+          "name":"_BountyAmount",
+          "type":"integer",
+          "nullable":true,
+          "metadata":[
+
+          ]
+        }
+      ]
+    },
+    "column_renames":[
+      "id",
+      "post_id",
+      "vote_type_id",
+      "user_id",
+      "creation_date",
+      "bounty_amount"
+    ],
+    "file_name":"votes"
+  }
+}
