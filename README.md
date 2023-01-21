@@ -1,5 +1,5 @@
 # big_data_aws_grad
-Big Data graduation project
+Big Data postgraduate project
 
 Env versions:
 - AWS EMR 6.7.0
