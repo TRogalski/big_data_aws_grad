@@ -139,16 +139,16 @@ with DAG("etl_english_stackexchange",
         aws_conn_id="aws_conn"
     )
 
-    step_adder = EmrAddStepsOperator(
-        task_id="add_steps",
+    add_emr_steps = EmrAddStepsOperator(
+        task_id="add_emr_steps",
         job_flow_id="{{ task_instance.xcom_pull(task_ids='create_emr_cluster', key='return_value') }}",
         aws_conn_id="aws_conn",
         cluster_states=["RUNNING"],
         steps=SPARK_STEPS
     )
 
-    step_sensor = EmrStepSensor(
-        task_id="step_sensor",
+    stense_emr_step = EmrStepSensor(
+        task_id="sense_emr_step",
         job_flow_id="{{ task_instance.xcom_pull(task_ids='create_emr_cluster', key='return_value') }}",
         step_id="{{ task_instance.xcom_pull(task_ids='add_steps', key='return_value')[-1] }}",
         target_states=["COMPLETED"],
@@ -156,5 +156,5 @@ with DAG("etl_english_stackexchange",
         aws_conn_id="aws_conn"
     )
 
-    s3_download_data >> create_emr_cluster >> step_adder >> step_sensor
+    s3_download_data >> create_emr_cluster >> add_emr_steps >> stense_emr_step
 
